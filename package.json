@@ -1,0 +1,21 @@
+{
+  "name": "here",
+  "version": "1.0.0",
+  "description": "\"here\" is a javaScript plugin which can give you some position message and help you know where you are🚇",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel ./src/here.js -d dev",
+    "build": "parcel build ./src/here.js  -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuanhaoyu/here.git"
+  },
+  "author": "Houn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuanhaoyu/here/issues"
+  },
+  "homepage": "https://github.com/yuanhaoyu/here#readme"
+}

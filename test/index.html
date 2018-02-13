@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <script src="../dev/here.js"></script>
+    <style>
+    button {
+        border: 1px solid black;
+    }
+    </style>
+</head>
+<body>
+    <h4>当前 <span id="model">watch模式</span></h4>
+    <h5>位置信息为：</h5>
+    <input type="radio" id="ishigh">是否高精度    
+    <br>
+    <br>    
+    <button onclick="startWatch()">开始watch</button>
+    <button onclick="clearWatch()">清除watch</button>
+    <p id="lng"></p>
+    <p id="lat"></p>
+    <p id="error"></p>
+</body>
+<script>
+    var lngDom = document.getElementById("lng");
+    var latDom = document.getElementById("lat");
+    var error = document.getElementById("error");
+    var model = document.getElementById("model");                    
+    var more;
+    var hihgStatus = false;
+
+    function startWatch () {
+        hihgStatus = document.getElementById('ishigh').checked;
+        more = here({high: hihgStatus, max: 60000, watch: true},function(res) {
+            lngDom.innerText = 'lng:'+ res.lng;
+            latDom.innerText = 'lat:'+ res.lat;
+            console.log(res)
+        }, function(res) {
+            error.innerText = 'error:'+ res;
+        });
+    }
+    
+    function clearWatch () {
+        more.clear();
+        model.innerText = '非watch模式';
+    }
+</script>
+</html>
